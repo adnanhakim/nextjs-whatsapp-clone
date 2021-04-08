@@ -186,12 +186,13 @@ const MessageContainer = styled.div`
    background-image: url('/img/background.png');
    background-size: cover;
    background-attachment: fixed;
-   min-height: 90vh;
+   min-height: calc(100vh - 3.6875rem - 3.875rem);
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
 `;
 
-const EndOfMessages = styled.div`
-   margin-bottom: 3.125rem;
-`;
+const EndOfMessages = styled.div``;
 
 const InputContainer = styled.form`
    position: sticky;
