@@ -13,7 +13,7 @@ function Sidebar() {
    const [user] = useAuthState(auth);
    const userChatRef = db
       .collection('chats')
-      .where('users', 'array-contains', user.email);
+      .where('users', 'array-contains', user?.email);
    const [chatsSnapshot] = useCollection(userChatRef);
 
    function createChat() {
