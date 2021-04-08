@@ -112,10 +112,10 @@ function ChatScreen({ chat, messages }) {
 
             <HeaderIcons>
                <IconButton>
-                  <AttachFileIcon />
+                  <AttachFileIcon style={{ color: '#00000073' }} />
                </IconButton>
                <IconButton>
-                  <MoreVertIcon />
+                  <MoreVertIcon style={{ color: '#00000073' }} />
                </IconButton>
             </HeaderIcons>
          </Header>
@@ -127,16 +127,20 @@ function ChatScreen({ chat, messages }) {
 
          <InputContainer>
             <IconButton>
-               <InsertEmoticonIcon />
+               <InsertEmoticonIcon style={{ color: '#00000073' }} />
             </IconButton>
 
-            <Input value={input} onChange={(e) => setInput(e.target.value)} />
+            <Input
+               value={input}
+               onChange={(e) => setInput(e.target.value)}
+               placeholder="Type a message"
+            />
             <button hidden disabled={!input} onClick={sendMessage}>
                Send Message
             </button>
 
             <IconButton>
-               <MicIcon />
+               <MicIcon style={{ color: '#00000073' }} />
             </IconButton>
          </InputContainer>
       </Container>
@@ -149,14 +153,15 @@ const Container = styled.div``;
 
 const Header = styled.div`
    position: sticky;
-   background-color: white;
+   background-color: #ededed;
    z-index: 100;
    top: 0;
    display: flex;
    align-items: center;
-   padding: 0.6875rem;
-   height: 5rem;
-   border-bottom: 1px solid whitesmoke;
+   padding: 0.625rem 1rem;
+   height: 3.6875rem;
+   border-bottom: 1px solid #cacaca;
+   border-left: 1px solid #cacaca;
 `;
 
 const HeaderInformation = styled.div`
@@ -165,11 +170,13 @@ const HeaderInformation = styled.div`
 
    > h3 {
       margin-bottom: 0.1875rem;
+      font-size: 1rem;
+      font-weight: 400;
    }
 
    > p {
-      font-size: 0.875rem;
-      color: gray;
+      font-size: 0.8125rem;
+      color: #00000099;
    }
 `;
 
@@ -177,8 +184,7 @@ const HeaderIcons = styled.div``;
 
 const MessageContainer = styled.div`
    padding: 1.875rem;
-   /* background-color: #e5ded8; */
-   background-image: url('https://blog.1a23.com/wp-content/uploads/sites/2/2020/02/Desktop.png');
+   background-image: url('/img/background.png');
    background-size: cover;
    background-attachment: fixed;
    min-height: 90vh;
@@ -190,12 +196,13 @@ const EndOfMessages = styled.div`
 
 const InputContainer = styled.form`
    position: sticky;
-   background-color: white;
+   background-color: #f0f0f0;
    z-index: 100;
    bottom: 0;
    display: flex;
    align-items: center;
    padding: 0.625rem;
+   height: 3.875rem;
 `;
 
 const Input = styled.input`
@@ -203,8 +210,8 @@ const Input = styled.input`
    align-items: center;
    outline: none;
    border: none;
-   border-radius: 0.625rem;
-   padding: 1.25rem;
-   background-color: whitesmoke;
-   margin: 0 1rem;
+   border-radius: 1.3125rem;
+   padding: 0.5625rem 0.75rem 0.6875rem;
+   background-color: white;
+   margin: 0.3125 0.625rem;
 `;
