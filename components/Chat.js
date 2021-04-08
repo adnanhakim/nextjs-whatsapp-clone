@@ -29,7 +29,7 @@ function Chat({ id, users }) {
          ) : (
             <UserAvatar>{recipientEmail[0]?.toUpperCase()}</UserAvatar>
          )}
-         <p>{recipientEmail}</p>
+         <p style={{ fontSize: '1.0625rem' }}>{recipientEmail}</p>
       </Container>
    );
 }
@@ -42,9 +42,10 @@ const Container = styled.div`
    cursor: pointer;
    padding: 15px;
    word-wrap: break-word;
+   border-bottom: 1px solid #e2e2e2;
 
    :hover {
-      background-color: #e9eaeb;
+      background-color: #f5f5f5;
    }
 `;
 

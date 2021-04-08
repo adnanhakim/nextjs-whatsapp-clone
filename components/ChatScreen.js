@@ -98,7 +98,7 @@ function ChatScreen({ chat, messages }) {
 
                {recipientSnapshot ? (
                   <p>
-                     Last active:{' '}
+                     Last seen:{' '}
                      {recipient?.lastSeen?.toDate() ? (
                         <TimeAgo datetime={recipient?.lastSeen?.toDate()} />
                      ) : (
@@ -160,8 +160,7 @@ const Header = styled.div`
    align-items: center;
    padding: 0.625rem 1rem;
    height: 3.6875rem;
-   border-bottom: 1px solid #cacaca;
-   border-left: 1px solid #cacaca;
+   border-bottom: 1px solid #d0d0d0;
 `;
 
 const HeaderInformation = styled.div`
