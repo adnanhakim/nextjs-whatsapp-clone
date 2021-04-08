@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -18,6 +18,7 @@ function ChatScreen({ chat, messages }) {
    const router = useRouter();
    const [user] = useAuthState(auth);
    const [input, setInput] = useState('');
+   const endOfMessagesRef = useRef(null);
 
    const [messagesSnapshot] = useCollection(
       db
@@ -70,6 +71,14 @@ function ChatScreen({ chat, messages }) {
       });
 
       setInput('');
+      scrollToBottom();
+   }
+
+   function scrollToBottom() {
+      endOfMessagesRef.current.scrollIntoView({
+         behavior: 'smooth',
+         block: 'start',
+      });
    }
 
    const recipient = recipientSnapshot?.docs?.[0]?.data();
@@ -113,7 +122,7 @@ function ChatScreen({ chat, messages }) {
 
          <MessageContainer>
             {showMessages()}
-            <EndOfMessage />
+            <EndOfMessages ref={endOfMessagesRef} />
          </MessageContainer>
 
          <InputContainer>
@@ -168,11 +177,16 @@ const HeaderIcons = styled.div``;
 
 const MessageContainer = styled.div`
    padding: 1.875rem;
-   background-color: #e5ded8;
+   /* background-color: #e5ded8; */
+   background-image: url('https://blog.1a23.com/wp-content/uploads/sites/2/2020/02/Desktop.png');
+   background-size: cover;
+   background-attachment: fixed;
    min-height: 90vh;
 `;
 
-const EndOfMessage = styled.div``;
+const EndOfMessages = styled.div`
+   margin-bottom: 3.125rem;
+`;
 
 const InputContainer = styled.form`
    position: sticky;
